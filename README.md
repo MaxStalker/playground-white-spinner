@@ -1,8 +1,7 @@
-# React + Vite
+## What we are building?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Today, boys and girls, we will make animated spinner controls, which was originally designed by [@drawsgood](https://x.com/drawsgood) and posted here:
+https://x.com/drawsgood/status/1797823695358165170
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is how it's going to look:
+![Preview](preview.png)
