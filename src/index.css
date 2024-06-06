@@ -22,6 +22,7 @@ body {
   background: #e3e3e3;
   margin: 0;
   padding: 0;
+  font-family: Poppins, sans-serif;
 }
 
 .controls {
@@ -44,26 +45,34 @@ button {
   font-size: 2rem;
   color: #555;
   cursor: pointer;
-  transition: background-color 0.25s ease-in-out;
+  transition:
+    background-color 0.25s ease-in-out,
+    transform 0.1s ease-in-out;
+  will-change: transform, background-color;
+  z-index: 10;
+  position: relative;
 }
 
 button:hover {
   background-color: #f1f1f1;
 }
 
-.container {
-  /* Frame 17 */
+button:active {
+  transform: scale(0.9);
+}
 
+.container {
   position: relative;
   width: 90px;
   height: 60px;
 
-  background: #dadada;
+  background: transparent;
   box-shadow:
-    0px 2px 0px -1px rgba(255, 255, 255, 0.4),
-    inset 0px 4px 4px rgba(0, 0, 0, 0.1),
-    inset 0px 4px 4px rgba(0, 0, 0, 0.25),
-    inset 0px 4px 10px -2px rgba(0, 0, 0, 0.25);
+    0 2px 0 -1px rgba(255, 255, 255, 0.4),
+    inset 0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 5px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 10px -3px rgba(0, 0, 0, 0.15);
+
   border-radius: 60px;
   display: flex;
   align-items: center;
@@ -77,16 +86,34 @@ button:hover {
   align-items: center;
   width: 100%;
   height: 100%;
+  transform-origin: 90px center;
+  transition: transform 0.2s ease-in-out;
+  pointer-events: none;
 }
 
-.label {
-  display: inline-block;
+.value {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transform-origin: 90px center;
+
   color: #474747;
   font-size: 32px;
-  font-family: Poppins, sans-serif;
   font-weight: bold;
-  transform-origin: 90px center;
-  position: absolute;
+}
+
+.active {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.inactive {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 255, 0, 0.5);
+  transform: rotate(180deg);
 }
 
 @keyframes rotate-in {
