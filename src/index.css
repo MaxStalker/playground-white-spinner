@@ -33,6 +33,9 @@ body {
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 60px;
   height: 60px;
   border-radius: 60px;
@@ -78,6 +81,7 @@ button:active {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  transform: translateZ(0);
 }
 
 .inner {
@@ -89,6 +93,7 @@ button:active {
   transform-origin: 90px center;
   transition: transform 0.2s ease-in-out;
   pointer-events: none;
+  transform: translateZ(0);
 }
 
 .value {
@@ -149,4 +154,9 @@ button:active {
 
 .rotateOut {
   animation: rotate-out 0.5s linear forwards;
+}
+
+.slight-rotate {
+  transition: transform 0.2s ease-in-out;
+  transform: rotate(-5deg);
 }
