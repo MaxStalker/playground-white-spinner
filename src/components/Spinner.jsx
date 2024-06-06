@@ -12,7 +12,7 @@ let sprite = {
 };
 
 let sound = new Howl({
-  src: ["./public/different.mp3"],
+  src: ["different.mp3"],
   volume: 0.1,
   autoplay: false,
   loop: false,
