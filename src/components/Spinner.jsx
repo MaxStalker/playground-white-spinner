@@ -57,18 +57,23 @@ const items = [];
 let playing = false;
 let current = 42;
 
-function play(direction) {
+function play(direction, value) {
+  if (value % 10 === 0) {
+    sound.play("s-2");
+    return false;
+  }
+
   if (direction === "normal") {
     sound.play("s-1");
   } else {
     sound.play("s-3");
   }
   /*  console.log(direction);
-  // const rate = direction === "normal" ? 1.2 : 1;
-  // sound.rate(rate);
-  const i = Math.floor(Math.random() * Object.keys(sprite).length);
-  const spriteName = Object.keys(sprite)[i];
-  sound.play(spriteName);*/
+	// const rate = direction === "normal" ? 1.2 : 1;
+	// sound.rate(rate);
+	const i = Math.floor(Math.random() * Object.keys(sprite).length);
+	const spriteName = Object.keys(sprite)[i];
+	sound.play(spriteName);*/
 }
 
 export default function Spinner() {
@@ -113,13 +118,20 @@ export default function Spinner() {
       return;
     }
 
-    outRef.current.textContent = items.shift();
+    const value = items.shift();
+    outRef.current.textContent = value;
+    if (value % 10 === 0) {
+      outRef.current.classList.add("powered");
+    } else {
+      outRef.current.classList.remove("powered");
+    }
+
     playing = true;
     const mul = Math.exp(total / 4);
     const duration = Math.max(50, 500 - 150 * mul);
     const clamped = Math.min(1000 / (duration + 100), 1);
 
-    play(direction, duration);
+    play(direction, value);
     outRef.current.style.filter = `blur(${Math.min(0, clamped - 1.5)}px)`;
     outRef.current.style.transform = `scaleY(${clamped})`;
 
